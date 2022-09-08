@@ -1,0 +1,17 @@
+<html>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <h3 class="mt-5">Live Streaming</h3>
+            <div style="display:flex; flex-wrap:wrap; fles-direction:row;">
+            <img src="{{ url_for('video_feed') }}" style="flex:auto;">
+            <img src="{{ url_for('video_gray_feed') }}" style="flex:auto;">
+            <img src="{{ url_for('video_mean_binary_feed') }}" style="flex:auto;">
+            <img src="{{ url_for('video_gausian_binary_feed') }}" style="flex:auto;">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
