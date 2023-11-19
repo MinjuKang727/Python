@@ -1,0 +1,46 @@
+#########################
+# 2-2. 폭발물 해제 작전 #
+#########################
+
+## 미션1 ##
+
+# 사건 : PNF를 안전하게 제거하기 위해 암호 해독기를 만들자!
+
+# 리스트
+# list_test = [1, 2, 3, 4, 5]
+# print(list_test[2]) # 실행 결과 : 3
+
+# # 포함 연산자 : 요소의 존재 여부를 판단하는 연산자
+# if 'a' in ['a', 'b', 'c'] :
+#     print('a exists.')
+# # 실행 결과 : a exists.
+
+# 조건문
+weather = 'rain'
+
+
+
+# 매뉴얼 전선 3개 : 파란색 > 하얀색 > 검은색
+lines = ['파란색', '하얀색', '검은색']
+# 자른 전선이 들어가는 리스트
+cut = []
+
+# 1. 빨간색 전선이 없으면 두 번째 전선을 자르시오
+if '빨간색' not in lines :
+    cut.append(lines.pop(1))
+else :
+    cut.append(lines.pop())
+# 2. 마지막 전선이 하얀색이면 마지막 전선을 자르시오.
+if lines[-1] == '하얀색' :
+    cut.append(lines.pop())
+else :
+    cut.append(lines.pop())
+# 3. 파란색 전선이 한 개 이상이면 두 번째 전선을 자르시오.
+if '빨간색' in lines :
+    cut.append(lines.pop(1))
+# 4. 아니면 마지막 전선을 자르시오
+else :
+    cut.append(lines.pop())
+
+print(cut)
+    
