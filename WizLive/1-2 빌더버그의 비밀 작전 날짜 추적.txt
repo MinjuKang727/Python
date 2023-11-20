@@ -1,0 +1,64 @@
+##############################
+# 1-2 빌더버그의 비밀 작전 날짜 추적 #
+##############################
+
+## 미션1 ##
+
+# 인물 : 파이(남자), 이선(여자)
+# 사건 : 인공위성에서 온 데이터에 든 파일 3개 중 정상적인 데이터를 찾아라.
+# 배경 : NIS
+
+# 정상적인 데이터 길이 : 512자
+
+file_a = 'ajkek__ihhfyfy7867gjk_,hi_bjfuky_gfu,hjkshfkyf_jgeu______,leieowry#ekh_iehkfejewjgdfe_48635ihf64___,guulhf_h,gdtj#gg#g65_ffy74764645v84djhf#uh8y__,h_jmehie##hejukjvd__,648fd7sgk4dl#k3_jhr82tej#223_______,___'
+file_b = 'djhfaheu___wehiehrhlsfhouhewwehr1238364892hrehwfwhelhewlehrlewhiorhhf3824863___883@hre93734084fdfhieelwhfhiei#startmyg^efac^pohSkcans^tekram^ytisrevinu^erotStnemtraped^llaHytic^krap^tnaruatser^retaehTeivomend#hfdhsifohifeifhlk368537djs89hds83e____89fwgafg3dbsjhgdiutwfw823___t93g3%@iu3977e&egd37dheehdgsaioiowi'
+file_c = 'asdfgwheu2963__jewjeyjkejeygey7627#36825h___,__d#ufigwfk,dfuigeuwke__,s324dfekd7he68___,jehkfk,fk73r#hkg743gjgu_,68fthk__#hfyu744ch_,ds##e_________####u#__,#j_#ab__,#nbu#_b_a_bb_b#bbbbrbby__##bb__bb##3#bb#1b_bb__,,bbbb#th_,64hdd##jdueh#hd72_,jey8___,37dek7dejebwjwkey1n_,ju,,_jeuwweejgeekeur_jege8363jfbdk'
+# data_li = [file_a, file_b, file_c]
+
+# for idx1 in range(3) :
+#     for idx2 in range(idx1 + 1, 3) :
+#         if (data_li[idx1] != data_li[idx2]) and len(data_li[idx1]+data_li[idx2]) == 512:
+#             print(data_li[idx1]+data_li[idx2])
+
+if len(file_a +file_b) == 512 :
+    print(file_a +file_b)
+elif len(file_a +file_c) == 512 :
+    print(file_a +file_c)
+elif len(file_b +file_c) == 512 :
+    print(file_b +file_c)
+# 실행 결과
+# ajkek__ihhfyfy7867gjk_,hi_bjfuky_gfu,hjkshfkyf_jgeu______,leieowry#ekh_iehkfejewjgdfe_48635ihf64___,guulhf_h,gdtj#gg#g65_ffy74764645v84djhf#uh8y__,h_jmehie##hejukjvd__,648fd7sgk4dl#k3_jhr82tej#223_______,___asdfgwheu2963__jewjeyjkejeygey7627#36825h___,__d#ufigwfk,dfuigeuwke__,s324dfekd7he68___,jehkfk,fk73r#hkg743gjgu_,68fthk__#hfyu744ch_,ds##e_________####u#__,#j_#ab__,#nbu#_b_a_bb_b#bbbbrbby__##bb__bb##3#bb#1b_bb__,,bbbb#th_,64hdd##jdueh#hd72_,jey8___,37dek7dejebwjwkey1n_,ju,,_jeuwweejgeekeur_jege8363jfbdk
+
+
+## 미션2 ##
+
+# 사건 : 찾은 데이터에서 360번부터 429번까지가 날짜와 관련된 중요한 힌트
+data = ''
+if len(file_a +file_b) == 512 :
+    data = file_a +file_b
+elif len(file_a +file_c) == 512 :
+    data = file_a +file_c
+elif len(file_b +file_c) == 512 :
+    data = file_b +file_c
+
+# 360번 ~ 429번 >> 문자열 인덱스 : 359 ~ 429
+data = data[360:430]
+print(data) 
+# 실행 결과
+# __,#j_#ab__,#nbu#_b_a_bb_b#bbbbrbby__##bb__bb##3#bb#1b_bb__,,bbbb#th_,
+
+
+## 미션3 ##
+
+# 문자열 수정 도구
+# upper() : 소문자를 대문자로 변환하는 함수
+# lower() : 대문자를 소문자로 변환하는 함수
+# strip("문자") : 문자열 양 끝의 특정 문자를 삭제하는 함수 
+# replace("대상 문자", "바꿀 문자") : 문자열의 값을 치환하는 함수
+
+data = data.upper()
+for x_str in ["_", ",", "#", "B"] :
+    data = data.replace(x_str, "")
+print(data) 
+# 실행 결과
+# JANUARY31TH

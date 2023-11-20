@@ -1,0 +1,121 @@
+#######################
+# 1-4 헤이그 도시 사수 작전 #
+#######################
+
+## 미션1 ##
+
+# 사건 : 빌더버그 조직은 시청에 있는 도시 시스템 제어 장치에 관한 자료가 있는 기밀 자료실을 타깃으로 생각하고 있다.
+
+# 기밀 자료실이 있는 층을 모두 찾아라.
+# 기밀 자료실 : 'secret'
+
+# 반복문
+# numbers = [1, 2, 3]
+# for v in numbers :
+#     print(v)
+# # 실행 결과 #
+# # 1
+# # 2
+# # 3
+
+# range(값) : 연속된 정수를 만드는 함수
+# range(start, stop, step)
+# for v in range(0, 3) :
+#     print(v)
+# # 실행 결과 #
+# # 0
+# # 1
+# # 2
+
+# 조건문
+# rain = True
+# if rain :
+#     print("It's raining")
+# # 실행 결과 #
+# # It's raining
+
+# 비교 연산자 : 숫자, 문자열 등 항목을 서로 비교
+# == : 두 항목이 같은지 비교
+# != : 두 항목이 다른지 비교
+# # 정수형끼리 비교
+# print(2 == 2) # 실행 결과 : True
+# # 정수형, 문자열 비교
+# print(1 == 'one') # 실행 결과 : False
+# # 문자열끼리 비교
+# print('abc' != 'bc') # 실행 결과 : True
+
+# 리스트 : 순서가 있는 요소들의 집합
+# 인덱스 : 리스트 내 요소의 순서로 0부터 시작
+# list_test = [1, 2, 3, 4, 5]
+# print(list_test[2]) # 실행 결과 : 3
+# 요소 추가 기능
+# 변수.append('요소') : 리스트 마지막에 요소 추가
+# list_new = ['a', 'b', 'c']
+# list_new.append('d')
+# print(list_new) # 실행 결과 : ['a', 'b', 'c', 'd']
+
+purpose_list = ['general', 'office', 'office', 'general', 'office', 'general', 'office', 'office', 'office', 'secret', 'conference', 'conference', 'office', 'general', 'office', 'general', 'secret', 'office', 'general', 'secret', 'general', 'office', 'office', 'general', 'office', 'conference', 'office', 'office', 'office', 'conference', 'conference', 'conference', 'office', 'general', 'secret', 'general', 'office', 'secret', 'general', 'office']
+secret_floors = []
+floor = 0
+for purpose in purpose_list :
+    floor = floor + 1
+    if purpose == 'secret' :
+        # print(floor)
+        secret_floors.append(floor)
+print(secret_floors)
+# 실행 결과 #
+# [10, 17, 20, 35, 38]
+        
+## 미션2 ##
+
+# 사건 : 위험물 감지 센서에 에러가 있는 층을 찾아라.
+
+sensor_list = ['error', 'error', '054057', '054324', '054326', '054327', 'error', 'error', '054345', '054352', '054353', '054359', '054404', '054406', '054411', '054412', '054413', '054414', 'error', 'error', '054415', '054416', 'error', 'error', 'error', 'error', '054421', '054422', 'error', 'error', '054425', '054426', '054427', '054428' , '054429', '054430', '054431', '054432', '054433', '054434']
+
+# 센서 에러 : 'error'
+# 센서 에러 층 리스트
+error_floors = []
+# 현재 층
+floor = 0
+for sensor in sensor_list :
+    floor = floor + 1
+    # 현재 층에 센서 상태가 'error'인가?
+    if sensor == 'error' :
+        # 센서 에러 층 리스트에 현재 층을 추가
+        error_floors.append(floor)
+print(error_floors)
+# 실행 결과 #
+# [1, 2, 7, 8, 19, 20, 23, 24, 25, 26, 29, 30]
+
+
+## 미션3 ##
+
+# 사건 : 빌더버그 조직은 센서가 작동하지 않는 기밀자료실 층을 노렸다.
+
+# boolean : 참 또는 거짓을 나타내는 자료형(True/ False)
+# 논리 연산자
+# money = False
+# card = True
+
+# if money == True or card == True : # 조건문 : True
+#     print("can buy something")
+# # 실행 결과 #
+# #  can buy something
+
+# if money == False and card == False : # 조건문 : False
+#     print("can nothing")
+# # 실행 결과 #
+
+# if not money : # 조건문 : True
+#     print("no money")
+# # 실행 결과 #
+# # no money
+
+# '기밀 자료실층 리스트'에서 층을 한개씩 꺼낸다.
+for floor in secret_floors :
+    # '기밀자료실 층'이 '센서 에러 층 리스트'에 포함되어 있으면,
+    if floor in error_floors :
+        # 기밀자료실 층을 출력
+        print(floor)
+# 실행 결과 #
+# 20

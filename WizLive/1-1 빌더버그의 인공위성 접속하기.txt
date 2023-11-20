@@ -1,0 +1,40 @@
+## 1-1 빌더버그의 인공위성 접속하기 ##
+# 미션1 #
+
+
+
+# 인물 : 파이(남자), 이선(여자)
+# 사건 : 빌더버그의 인공위성에 접속 시도 중인데 인공위성이 궤도 이탈 중이라 접속 가능한 시간이 얼마 남지 않았다.
+# 배경 : NIS(National Intelligence Service; 국가 정보원)
+
+# Intelsat 정지궤도 : 35,789km
+now_loc = 35789
+# Intelsat 묘지 궤도 : 52,418km
+die_loc = 52418
+# (남은 시간) = (거리) / (속력)
+# (거리) = (Intelsat 묘지 궤도) - (Intelsat 정지궤도)
+distance = die_loc - now_loc
+# Intelsat 속력 : 7.9km/s
+speed = 7.9
+time = distance / speed # 단위: 초(s)
+# (초 시간) / 60 = (분 시간)
+time = time / 60
+print(int(time))
+## Mission clear! ##
+
+## 미션2 ##
+# (비밀번호) = (정지궤도 둘레) / (인공위성 번호)
+# 인공위성 번호 : 100
+num = 100
+# (원 둘레 길이) = (원의 반지름) * 2 * (원주율)
+#                = (원의 반지름) * 2 * 3.14
+# 지구 반지름 : 6,371km
+earth_r = 6371
+# 정지 궤도 고도 : 35,789km
+height_now = 35789
+# (정지궤도 반지름) = (지구 반지름) + (정지 궤도 고도)
+now_r = earth_r + height_now
+# 정지 궤도 둘레
+now_l = now_r * 2 * 3.14
+pw = now_l / 100
+print(int(pw))
