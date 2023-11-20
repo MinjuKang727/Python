@@ -1,0 +1,123 @@
+############################
+# 2-4. 빌더버그의 메시지 해독 작전 #
+############################
+
+## 미션1 ##
+
+# 사건 : 시청 출입 명부에서 출처를 알 수 없는 URL이 발견되었다. 웹사이트 접속 비밀번호를 찾아라!
+
+# [ 학습 자료 ]
+# 2진수(binary number) : 컴퓨터가 이해할 수 있는 0과 1만으로 나타내는 수
+# 표기법 : '0b이진수값'
+
+# # 문자열 -> 숫자 변환
+# # int('문자열')
+# print(int('30')) # 실행 결과 : 30
+# print(int('0b101010', 2)) # 실행 결과 : 42
+# print(int('0x72', 16)) # 실행 결과 : 114
+
+# 접속 비밀 번호를 찾자!
+# 이진법으로 표기된 숫자 : 1001111001
+bi_num = '1001111001'
+# 이진법을 정수로 변환하자!
+pw = int('0b'+bi_num, 2)
+print(pw) # 실행 결과 : 633
+
+## 미션2 ##
+
+# 사건 : 쪽지에 암시된 지령의 내용을 밝혀라.
+
+# [ 학습 자료] #
+# # 숫자 -> 2진수 문자열 변환
+# # bin(숫자)
+# print(bin(42)) # 실행 결과 : 0b101010
+
+# 이중 반복문 : 반복문 안에 반복문이 들어있는 형태
+# 반복 조건이 다른 데이터에 접근할 때 사용
+# 외부 반복문의 1번 실행마다 내부 반복문 실행 동작을 반복
+
+# star = 10
+# for i in range(star) :
+#     for j in range(i) :
+#         print("*", end = '', flush=True)
+#     print('\n')
+    
+# # 조건문
+# weather = 'rain'
+# if weather == 'rain':
+#     print("it's raining")
+# elif weather == 'snow' :
+#     print("it's snowing")
+# elif weather == 'cloud' :
+#     print("it's cloudy")
+# else :
+#     print("it's sunny")
+# # 실행 결과 : it's raining
+
+# # print 줄바꿈 제거
+# # print함수로 값 출력시, 자동적으로 줄바꿈('\n') 출력
+# for v in range(10) :
+#     print('number:', v)
+# # 실행 결과 
+# # number: 0
+# # number: 1
+# # number: 2
+# # number: 3
+# # number: 4
+# # number: 5
+# # number: 6
+# # number: 7
+# # number: 8
+# # number: 9
+
+# # 줄바꿈 없이 출력 : 출력할 값 뒤에 (,end='',flush=True)추가
+# for i in range(10) :
+#     print('*', end='', flush=True)
+# # 실행 결과 : **********
+
+num_list = [0b1011110000001111, 0b1010010000001001, 0b1010010111101001, 0b1011110100101001, 0b1010010111101001, 0b1010010100001001, 0b1011110111101111]
+dec_list = []
+for num in num_list :
+    for i in bin(num) :
+        if i == '1' :
+            print('*', end="", flush=True)
+        else :
+            print(" ", end="", flush=True)
+    print('\n')
+# 실행 결과 #
+#   * ****      ****
+#   * *  *      *  *
+#   * *  * **** *  *
+#   * **** *  * *  *
+#   * *  * **** *  *
+#   * *  * *    *  *
+#   * **** **** ****
+# >> 18e0
+
+## 미션3 ##
+
+# 사건 : 지령 정보에 담긴 비밀 메시지를 해독하라
+# 비밀 지령의 텍스트가 부분적으로 손상된 이유를 찾아라!
+
+# [ 학습 자료 ] #
+# # 리스트 -> 문자열 변환
+# # 리스트의 요소들을 합하여 구분자가 추가된 문자열로 변환
+# # '구분자'.join(리스트)
+# month = ['January', 'February', 'March', 'April', 'May', 'June']
+# halfyear = ','.join(month)
+# print(halfyear) # 실행 결과 : January,February,March,April,May,June
+
+paragraph = 'We are a form of warfare. We aim to achieve maximum consequential impact for where   asymmetric happens. We attack where finite input allocation of resources   exists. objectives should be clearly defined and work norms and means adopted by the organization are acceptable to the individual and groups. Each Person   is responsible for completing   the work. Organisation will appoint the job should be done. should be set up in such a way that every individual should be assigned a duty according to his skill and qualification. The person should   continue the same work so that he specialises in his work. This helps in increasing production in the concern. The scope of authority and responsibility   should be clearly defined.   Every person should know his work with definiteness. If the duties are not clearly assigned.  then it will not be possible to fix responsibility also. Everybody’s responsibility will become nobody’s responsibility. The principle states that top management should interfere only when something goes wrong.   If the things are done as per plans then there is no need for the interference of top management.   The management should leave routine things to be supervised by lower cadres.   It is only in exceptional situations when attention of   top easy management is drawn.  The principle   relieves top management of many botherations and routine things. Principle of exception allows top   management to concentrate on planning game and policy formulation.   Important time of management is not   wasted on avoidable supervision. The responsibility of the superior does not decrease once he has delegated authority. A person   can delegate authority and not responsibility. We will remain for the work even if it is de legated to the subordinate accountable work. So the responsibility of superior and subordinate remains absolute.'
+
+missing = 'We are a form of warfare. We aim to achieve maximum consequential impact for where   as-mmetric happens. We attack where finite input all-cation of reso-rces - exists. objectives s-ould be cle-rly defined and work norms and means adopted by the organization are acceptable to the indi-idual and groups. Each P-rson - is responsi-l- for compl-ti-g - the work. Organisation will appoint the job shoul- be d-ne. should be set up in such a way that every individual should be assigned a duty accord--- to his skill and qualification. The person should - continue the same -ork so that h- specialises in his work. This he-ps in increasing production in the concern. The scope of authority and responsibi-ity - -h-uld be clearly defined. - Every person should know his work with de-initeness. If the duties --e not clearly assigned-- then it will not -e possible to fix responsibility also. Everybody’s responsibility will become nobody’s responsibility. The principle states that top management sho-ld in-erfere only when something goes wrong. - If the things are done as per plans then there -s no need for -he interference of top management. - The management should leave routine things to be supervised by lo-er c-dre-. - It is only in excep-i-nal situations when attenti-n of - top ---- management is drawn- ---- principle - --lieves top man-gement of many botherations and routine things. Princip-e of exception allows top - management to concentrate on planning ---- and policy formulation. - Important time of management -- not - --sted on avo-dable supervision. The responsibility of -he super-or does -ot decrease once he has dele-ated authority- A person - can dele-ate authority and n-t resp-nsibility. We will remain for the work even if it is -e--egated to the s-bordinate a-countable wor-. So the responsibility of superior and subordinate remains absolute-'
+
+# 손상된 텍스트 모음 리스트
+char_list = []
+
+for i in range(len(paragraph)) :
+    if '-' == missing[i] :
+        char_list.append(paragraph[i])
+        
+print(''.join(char_list))
+# 실행 결과 #
+# you have been doing well so far. but it was too easy. The real game is waiting. good luck.
