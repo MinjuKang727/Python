@@ -1,10 +1,9 @@
-#########################
-# 2-2. 폭발물 해제 작전 #
-#########################
-
+###################
+# 2-2. 폭발물 해체 작전 #
+###################
 ## 미션1 ##
 
-# 사건 : PNF를 안전하게 제거하기 위해 암호 해독기를 만들자!
+# 사건 : PNF를 안전하게 제거하기 위해 암호 해독기를 만들어 첫번째 폭탄을 해체하기 위해 절단할 전선의 색깔을 찾자!
 
 # 리스트
 # list_test = [1, 2, 3, 4, 5]
@@ -15,32 +14,83 @@
 #     print('a exists.')
 # # 실행 결과 : a exists.
 
-# 조건문
-weather = 'rain'
-
-
+# # 조건문
+# weather = 'rain'
+# if weather == 'rain' :
+#     print("it's raining")
+# elif weather == 'snow' :
+#     print("it's snowing")
+# elif weather == 'cloud' :
+#     print("it's cloudy")
+# else :
+#     print("it's sunny")
+# # 실행 결과 #
+# # it's raining
 
 # 매뉴얼 전선 3개 : 파란색 > 하얀색 > 검은색
-lines = ['파란색', '하얀색', '검은색']
-# 자른 전선이 들어가는 리스트
-cut = []
-
+lines = ['blue', 'white', 'black']
+cut = ''
 # 1. 빨간색 전선이 없으면 두 번째 전선을 자르시오
-if '빨간색' not in lines :
-    cut.append(lines.pop(1))
-else :
-    cut.append(lines.pop())
+if 'red' not in lines :
+    cut = lines.pop(1)
 # 2. 마지막 전선이 하얀색이면 마지막 전선을 자르시오.
-if lines[-1] == '하얀색' :
-    cut.append(lines.pop())
-else :
-    cut.append(lines.pop())
+elif lines[-1] == 'white' :
+    cut = lines.pop()
 # 3. 파란색 전선이 한 개 이상이면 두 번째 전선을 자르시오.
-if '빨간색' in lines :
-    cut.append(lines.pop(1))
+elif 'red' in lines :
+    cut = lines.pop(1)
 # 4. 아니면 마지막 전선을 자르시오
 else :
-    cut.append(lines.pop())
+    cut = lines.pop()
 
-print(cut)
-    
+print("cut the", cut, "wire")
+# 실행 결과 #
+# cut the white wire
+
+## 미션2 ##
+
+# 사건 : 두번째 폭탄을 해체하기 위해 절단할 전선의 색깔을 찾자!
+
+# 힌트 : 사진을 참고하여 전선의 색깔을 알아보자.
+# 매뉴얼 전선 3개 : 하얀색 > 파란색 > 빨간색
+lines = ['white', 'blue', 'red']
+cut = ''
+
+# 1. 빨간색 전선이 없으면 두 번째 전선을 자르시오
+if 'red' not in lines :
+    cut = lines.pop(1)
+# 2. 마지막 전선이 하얀색이면 마지막 전선을 자르시오.
+elif lines[-1] == 'white' :
+    cut = lines.pop()
+# 3. 파란색 전선이 한 개 이상이면 두 번째 전선을 자르시오.
+elif 'red' in lines :
+    cut = lines.pop(1)
+# 4. 아니면 마지막 전선을 자르시오
+else :
+    cut = lines.pop()
+
+print("cut the", cut, "wire")
+# 실행 결과 #
+# cut the blue wire
+
+## 미션3 ##
+
+# 메뉴얼 전선 5개 : 노란색 > 파란색 > 하얀색 > 검은색 > 빨간색
+lines = ['yellow', 'blue', 'white', 'black', 'red']
+
+# 1. 네 번째 전선이 검은색이 아니면 두 번째 전선을 자르시오.
+if lines[3] != 'black' :
+    cut = lines.pop(1)
+# 2. 빨간색 전선이 하나이고 노란색 전선이 1개 이상이면 첫번째 전선을 자르시오.
+elif (lines.count('red') == 1) and ('yellow' in lines) :
+    cut = lines.pop(0)
+# 3. 파란색 전선이 없으면 네번째 전선을 자르시오.
+elif 'blue' not in lines :
+    cut = lines.pop(3)
+# 4. 아니면 마지막 전선을 자르시오
+else :
+    cut = lines.pop()
+
+print("cut the", cut, "wire")
+# 실행 결과 #
+# cut the yellow wire
