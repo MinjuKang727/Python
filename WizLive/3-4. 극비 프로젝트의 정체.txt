@@ -1,0 +1,64 @@
+#############################
+# 3-4. 극비 프로젝트의 정체 #
+#############################
+
+## 미션1 ##
+
+# 사건 : MONA. 1980년에 진행된 극비 프로젝트. 참여자 명단을 참고해서 참여한 기관을 알아내라!
+
+'''
+집합(set)이란?
+데이터의 모음
+순서가 없고, 요소의 중복을 허용하지 않는 자료형
+중괄호('{}') 안에 요소들을 저장
+선언 : 변수 = {}
+'''
+
+subjects = {'English', 'Math', 'Science', 'Python'}
+
+'''
+set(데이터):집합 자료형으로 변환하는 함수
+리스트, 튜플 -> 집합 변환 시 중복된 요소는 자동적 제거
+딕셔너리 -> 집합 변환 시 key만을 저장
+'''
+
+# string_test = 'butterfly'
+# set_test = set(string_test)
+# print(set_test) # {'f', 'y', 'e', 'l', 'b', 'u', 't', 'r'}
+
+'''
+연산자와 함수
+합집합 : 여러 개의 집합을 하나로 합한 것   |   union()
+교집합 : 여러 집합에 공통되는 요소         &   intersection()
+차집합 : 중복된 요소를 뺀 나머지           -   difference()
+'''
+# A = {0, 5, 6}
+# B = {0, 3, 4}
+
+'''
+연산자  함수
+A | B   A.union(B)
+A & B   A.intersection(B)
+A - B   A.difference(B)
+'''
+# print(A | B) # {0, 3, 4, 5, 6}
+# print(A.union(B)) # {0, 3, 4, 5, 6}
+# print(A & B) # {0}
+# print(A.intersection(B)) # {0}
+# print(A - B) # {5, 6}
+# print(A.difference(B)) # {5, 6}
+
+a_b = ['oak', 'guitar', 'butter', 'clover', 'moon', 'notepad', 'bird', 'pineapple', 'grass','spider','ring', 'sun', 'bear','space']
+b_d = ['clover', 'moon', 'notepad', 'bird', 'pineapple', 'grass','spider','boat', 'piano', 'seed', 'earth', 'melody', 'granate', 'mushroom', 'vase', 'bee']
+c_d = ['boat', 'piano', 'seed', 'tumblr', 'popcorn', 'eagle', 'tank', 'cactus', 'fever', 'orange', 'papercup', 'earth', 'melody', 'granate', 'mushroom', 'vase', 'bee']
+d = ['boat', 'piano', 'seed', 'earth', 'melody', 'granate', 'mushroom', 'vase', 'bee']
+MONA = ['oak', 'guitar', 'butter', 'boat']
+projects = [a_b, b_d, c_d, d]
+teams = ['A & B', 'B & D', 'C & D', 'D']
+
+for members, team in zip(projects, teams) :
+    for 
+    if 'oak' not in members :
+        teams.remove(team)
+print(teams)
+        
