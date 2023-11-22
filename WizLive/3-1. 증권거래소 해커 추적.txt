@@ -1,0 +1,114 @@
+#############################
+# 3-1. 증권거래소 해커 추적 #
+#############################
+
+## 미션1 ##
+
+
+# 사건 : 증권 거래소를 해킹한 범인을 찾아라.
+
+# 힌트 : 데이터 중에서 '거래'를 한 정보만 추출하자!
+
+'''
+딕셔너리 : 연관된 요소들의 짝을 배열하는 사전 형태의 자료형
+key와 value의 쌍을 ','로 구분하여 나열
+순서가 없고 같은 key를 중복하여 사용 불가
+선언 : 변수 = {key1 : value1, key2:value2}
+'''
+# sample_dict1 = {
+#     'month1' : 'January',
+#     'month2' : 'February'
+# }
+
+# item : key에 value를 대응시킨 쌍
+# sample_dict2 = {
+#     'name': 'Ann', 
+#     'age':13, 
+#     'grade':6
+# }
+'''
+딕셔너리 요소 접근
+key 값으로 key에 대응하는 value 값에 접근
+사전 객체[key]
+사전 객체.get(key)
+'''
+# dict_test = {
+#     'lemon' : 'yellow',
+#     'lime' : 'green'
+# }
+
+# print(dict_test.get('lemon')) # 실행 결과 : yellow
+# print(dict_test['lemon']) # 실행 결과 : yellow
+
+'''
+비교 연산자 : 숫자, 문자열 등 두 항목을 서로 비교하는 연산자
+결과는 True 또는 False 반환
+'''
+
+# print(1 != 'one') # 실행 결과 : True
+# print('Sun' == 'Sun') # 실행 결과 : True
+
+log = [{'time':'1014','ip':'89.149.233.0','type':'trade','item':'wiz asset','price':40000,'id':'502yo4'},
+{'time':'1016','ip':'89.149.233.1','type':'download','item':'None','price':0,'id':'rtw1517'},
+{'time':'1305','ip':'89.149.233.3','type':'trade','item':'star asset','price':10000,'id':'eop00'},
+{'time':'1315','ip':'89.149.233.6','type':'trade','item':'q energy','price':10000,'id':'versit808'},
+{'time':'1253','ip':'89.149.233.9','type':'trade','item':'ms ent','price':2700,'id':'vsf7'},
+{'time':'1400','ip':'89.149.233.12','type':'trade','item':'wiz asset','price':10000,'id':'ge3298'},
+{'time':'1253','ip':'89.149.233.10','type':'trade','item':'ms ent','price':2700,'id':'hdus8'},
+{'time':'1253','ip':'89.149.233.17','type':'trade','item':'ms ent','price':2700,'id':'tau200'},
+{'time':'1508','ip':'89.149.233.20','type':'trade','item':'wiz asset','price':45000,'id':'haha160'},
+{'time':'1510','ip':'89.149.233.26','type':'download','item':'None','price':0,'id':'bus328'},
+{'time':'1500','ip':'89.149.233.30','type':'trade','item':'wiz asset','price':5000,'id':'son1257'},
+{'time':'1144','ip':'89.149.233.20','type':'trade','item':'q energy','price':10000,'id':'fury01'},
+{'time':'1400','ip':'89.149.233.32','type':'download','item':'ms ent','price':9000,'id':'bew02'},
+{'time':'1400','ip':'89.149.233.39','type':'trade','item':'wiz asset','price':10000,'id':'fightclub'},
+{'time':'1122','ip':'89.149.233.42','type':'download','item':'None','price':0,'id':'young0'},
+{'time':'1300','ip':'89.149.233.43','type':'trade','item':'q energy','price':10000,'id':'kywu1'},
+{'time':'1020','ip':'89.149.233.45','type':'trade','item':'ms ent','price':2700,'id':'wyue1'},
+{'time':'1400','ip':'89.149.233.42','type':'download','item':'None','price':0,'id':'terra133'},
+{'time':'1300','ip':'89.149.233.55','type':'download','item':'None','price':0,'id':'sdyt2387'},
+{'time':'1046','ip':'89.149.233.48','type':'trade','item':'star asset','price':1800,'id':'sdk547'},
+{'time':'1000','ip':'89.149.233.52','type':'trade','item':'q energy','price':10000,'id':'jjkw4'},
+{'time':'1048','ip':'89.149.233.3','type':'trade','item':'wiz asset','price':5000,'id':'wyre97'},
+{'time':'1210','ip':'89.149.233.54','type':'trade','item':'star asset','price':40000,'id':'jaeh3'},
+{'time':'1055','ip':'89.149.233.13','type':'trade','item':'ms ent','price':2700,'id':'tool2345'},
+{'time':'1353','ip':'89.149.233.48','type':'trade','item':'wiz asset','price':5000,'id':'lala20'},
+{'time':'1400','ip':'89.149.233.2','type':'download','item':'None','price':0,'id':'vnv379'}]
+
+# 거래 관련 로그 데이터 리스트
+trade_list = []
+
+for data in log :
+    if data['type'] == 'trade' :
+        trade_list.append(data)
+print(trade_list)
+# 실행 결과 #
+# [{'time': '1014', 'ip': '89.149.233.0', 'type': 'trade', 'item': 'wiz asset', 'price': 40000, 'id': '502yo4'}, {'time': '1305', 'ip': '89.149.233.3', 'type': 'trade', 'item': 'star asset', 'price': 10000, 'id': 'eop00'}, {'time': '1315', 'ip': '89.149.233.6', 'type': 'trade', 'item': 'q energy', 'price': 10000, 'id': 'versit808'}, {'time': '1253', 'ip': '89.149.233.9', 'type': 'trade', 'item': 'ms ent', 'price': 2700, 'id': 'vsf7'}, {'time': '1400', 'ip': '89.149.233.12', 'type': 'trade', 'item': 'wiz asset', 'price': 10000, 'id': 'ge3298'}, {'time': '1253', 'ip': '89.149.233.10', 'type': 'trade', 'item': 'ms ent', 'price': 2700, 'id': 'hdus8'}, {'time': '1253', 'ip': '89.149.233.17', 'type': 'trade', 'item': 'ms ent', 'price': 2700, 'id': 'tau200'}, {'time': '1508', 'ip': '89.149.233.20', 'type': 'trade', 'item': 'wiz asset', 'price': 45000, 'id': 'haha160'}, {'time': '1500', 'ip': '89.149.233.30', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'son1257'}, {'time': '1144', 'ip': '89.149.233.20', 'type': 'trade', 'item': 'q energy', 'price': 10000, 'id': 'fury01'}, {'time': '1400', 'ip': '89.149.233.39', 'type': 'trade', 'item': 'wiz asset', 'price': 10000, 'id': 'fightclub'}, {'time': '1300', 'ip': '89.149.233.43', 'type': 'trade', 'item': 'q energy', 'price': 10000, 'id': 'kywu1'}, {'time': '1020', 'ip': '89.149.233.45', 'type': 'trade', 'item': 'ms ent', 'price': 2700, 'id': 'wyue1'}, {'time': '1046', 'ip': '89.149.233.48', 'type': 'trade', 'item': 'star asset', 'price': 1800, 'id': 'sdk547'}, {'time': '1000', 'ip': '89.149.233.52', 'type': 'trade', 'item': 'q energy', 'price': 10000, 'id': 'jjkw4'}, {'time': '1048', 'ip': '89.149.233.3', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'wyre97'}, {'time': '1210', 'ip': '89.149.233.54', 'type': 'trade', 'item': 'star asset', 'price': 40000, 'id': 'jaeh3'}, {'time': '1055', 'ip': '89.149.233.13', 'type': 'trade', 'item': 'ms ent', 'price': 2700, 'id': 'tool2345'}, {'time': '1353', 'ip': '89.149.233.48', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'lala20'}]
+
+## 미션2 ##
+
+# 사건 : '종목'이 'wiz asset'인 로그 데이터를 찾아라.
+
+# 거래 관련 로그 데이터 중 종목이 'wiz asset'인 로그 데이터 리스트
+wiz_assets = []
+
+for data in trade_list :
+    if data['item'] == 'wiz asset' :
+        wiz_assets.append(data)
+print(wiz_assets)
+# 실행 결과 #
+# [{'time': '1014', 'ip': '89.149.233.0', 'type': 'trade', 'item': 'wiz asset', 'price': 40000, 'id': '502yo4'}, {'time': '1400', 'ip': '89.149.233.12', 'type': 'trade', 'item': 'wiz asset', 'price': 10000, 'id': 'ge3298'}, {'time': '1508', 'ip': '89.149.233.20', 'type': 'trade', 'item': 'wiz asset', 'price': 45000, 'id': 'haha160'}, {'time': '1500', 'ip': '89.149.233.30', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'son1257'}, {'time': '1400', 'ip': '89.149.233.39', 'type': 'trade', 'item': 'wiz asset', 'price': 10000, 'id': 'fightclub'}, {'time': '1048', 'ip': '89.149.233.3', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'wyre97'}, {'time': '1353', 'ip': '89.149.233.48', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'lala20'}]
+
+## 미션3 ##
+
+# 사건 : 정상적인 가격(10,000유로)으로 거래한 기록은 지우고 비정상적인 기록만 남기자.
+
+# 잘못된 가격으로 거래한 기록 리스트
+price_not10000s = []
+
+for data in wiz_assets :
+    if data['price'] != 10000 :
+        price_not10000s.append(data)
+print(price_not10000s)
+# 실행 결과 #
+# [{'time': '1014', 'ip': '89.149.233.0', 'type': 'trade', 'item': 'wiz asset', 'price': 40000, 'id': '502yo4'}, {'time': '1508', 'ip': '89.149.233.20', 'type': 'trade', 'item': 'wiz asset', 'price': 45000, 'id': 'haha160'}, {'time': '1500', 'ip': '89.149.233.30', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'son1257'}, {'time': '1048', 'ip': '89.149.233.3', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'wyre97'}, {'time': '1353', 'ip': '89.149.233.48', 'type': 'trade', 'item': 'wiz asset', 'price': 5000, 'id': 'lala20'}]

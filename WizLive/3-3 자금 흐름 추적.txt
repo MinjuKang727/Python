@@ -1,0 +1,42 @@
+######################
+# 3-3 자금 흐름 추적 #
+######################
+
+## 미션1 ##
+# 미션 : 해커가 사용한 은행 계좌의 거래 내역에 모스 부호가 찍힌 거래 내역만 뽑아내자.
+account_details =[{'date':'0201','type':'withdraw','account':'211-854-6681','amount':132500,'memo':'-..'},{'date':'0205','type':'withdraw','account':'121-554-1820','amount':106000,'memo':'--'},{'date':'0205','type':'withdraw','account':'211-157-3580','amount':130000,'memo':'---'},{'date':'0207','type':'deposit','account':'202-3207-8819','amount':50000, 'memo':'Jovia'},{'date':'0201','type':'pay','account':'554-6280-7772','amount':100000,'memo':'Emily'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':123000,'memo':'-.'},{'date':'0201','type':'withdraw','account':'428-7190-5471','amount':167000,'memo':'.-'},{'date':'0204','type':'deposit','account':'260-415-2919','amount':16000,'memo':'John'},{'date':'0204','type':'withdraw','account':'211-854-6720','amount':180000,'memo':'..-.'},{'date':'0201','type':'withdraw','account':'115-854-1280','amount':230000,'memo':'..'},{'date':'0202','type':'withdraw','account':'131-555-6000','amount':251000,'memo':'-.'},{'date':'0203','type':'deposit','account':'243-31-5325','amount':15000,'memo':'Nugu'},{'date':'0204','type':'deposit','account':'463-433-0205','amount':7050,'memo':'Samuel'},{'date':'0201','type':'withdraw','account':'221-554-6880','amount':300000,'memo':'-..'},{'date':'0201','type':'withdraw','account':'428-7190-5471','amount':113700,'memo':'--'},{'date':'0204','type':'deposit','account':'206-415-2919','amount':16000,'memo':'Harry'},{'date':'0201','type':'withdraw','account':'628-7490-5471','amount':213700,'memo':'---'},{'date':'0201','type':'withdraw','account':'128-2196-5471','amount':113700,'memo':'-.'},{'date':'0204','type':'deposit','account':'2060-415-2919','amount':106000,'memo':'.-'},{'date':'0204','type':'withdraw','account':'111-554-6880','amount':310000,'memo':'..-.'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':310000,'memo':'..'},{'date':'0202','type':'withdraw','account':'131-554-6000','amount':221000,'memo':'-.'},{'date':'0203','type':'deposit','account':'2463-31-5325','amount':15000,'memo':'Nugu'},{'date':'0204','type':'deposit','account':'2463-433-0205','amount':7050,'memo':'Samuel'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':300000,'memo':'-..'},{'date':'0201','type':'withdraw','account':'428-7190-5471','amount':313700,'memo':'--'},{'date':'0204','type':'deposit','account':'2060-415-2919','amount':16000,'memo':'Ann'},{'date':'0204','type':'withdraw','account':'111-554-6880','amount':320000,'memo':'---'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':24000,'memo':'Betty'},{'date':'0203','type':'deposit','account':'2463-31-5325','amount':15000,'memo':'Nugu'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':30000,'memo':'Norman'},{'date':'0201','type':'withdraw','account':'428-7190-5471','amount':371200,'memo':'-.'},{'date':'0204','type':'deposit','account':'2060-415-2919','amount':106000,'memo':'.-'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':30000,'memo':'Betty'},{'date':'0202','type':'withdraw','account':'131-554-6000','amount':1000,'memo':'DrFisher'},{'date':'0204','type':'withdraw','account':'2463-433-0205','amount':7050,'memo':'Samuel'},{'date':'0204','type':'withdraw','account':'111-554-6880','amount':530000,'memo':'..-.'},{'date':'0201','type':'withdraw','account':'111-554-6880','amount':130000,'memo':'..'},{'date':'0202','type':'withdraw','account':'131-554-6000','amount':109400,'memo':'-.'}]
+
+morse_memos = []
+
+for info in account_details :
+    if not info['memo'].isalpha() :
+        morse_memos.append(info['memo'])
+print(morse_memos)
+# 실행 결과 #
+# ['-..', '--', '---', '-.', '.-', '..-.', '..', '-.', '-..', '--', '---', '-.', '.-', '..-.', '..', '-.', '-..', '--', '---', '-.', '.-', '..-.', '..', '-.']
+
+
+## 미션2 ##
+
+# 미션 : 모스부호 사전을 만들자!
+
+morse_code = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
+alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+morse_dict = {}
+
+for morse, abc in zip(morse_code, alphabet) :
+    morse_dict[morse] = abc
+
+print(morse_dict)
+# 실행 결과 #
+# {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', '--..': 'Z'}
+
+## 미션3 ##
+# 미션 : 모스 코드를 알파벳으로 바꾸어 조합하고 암호를 해독하라!
+
+for memo in morse_memos :
+    print(morse_dict[memo], end="", flush = True)
+# 실행 결과 #
+# DMONAFINDMONAFINDMONAFIN
+# 암호 뜻 : FINDMONA
